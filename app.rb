@@ -31,3 +31,18 @@ post '/service/:service/:id' do
     status 400
   end
 end
+
+get '/service/:service/?:id?' do
+  content_type :json
+  if params[:id]
+    data = $redis.hget("service:#{params[:service]}", params[:id])
+  else
+    data = $redis.hgetall("service:#{params[:service]}")
+  end
+  if !data || (data.class == Hash && data.empty?)
+    status 404
+  else
+    puts data
+    data.to_json
+  end
+end
