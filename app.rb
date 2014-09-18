@@ -13,7 +13,7 @@ def is_json?(json)
 end
 
 get '/' do
-  "Hello, world!"
+  status 200
 end
 
 post '/service/:service' do
