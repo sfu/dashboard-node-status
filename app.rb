@@ -1,6 +1,6 @@
 configure do
   redis_url = ENV['redis_url'] || 'redis://localhost:6379/0'
-  redis = Redis.new(:url => redis_url)
+  $redis = Redis.new(:url => redis_url)
 end
 
 def is_json?(json)
