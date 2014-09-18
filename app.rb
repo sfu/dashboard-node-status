@@ -17,6 +17,10 @@ get '/' do
 end
 
 post '/service/:service' do
+get '/isup' do
+  "ok"
+end
+
   request.body.rewind
   body = request.body.read
   puts body
