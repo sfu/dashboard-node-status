@@ -23,10 +23,11 @@ end
 post '/service/:service/:id' do
   request.body.rewind
   body = request.body.read
-  puts body
   if is_json?(body)
-    "#{body}"
+    puts "service:#{params[:service]} #{params[:id]} #{body}"
+    $redis.hmset("service:#{params[:service]}", "#{params[:id]}", "#{body}")
+    "ok"
   else
-    "not valid"
+    status 400
   end
 end
