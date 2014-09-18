@@ -16,11 +16,11 @@ get '/' do
   status 200
 end
 
-post '/service/:service' do
 get '/isup' do
   "ok"
 end
 
+post '/service/:service/:id' do
   request.body.rewind
   body = request.body.read
   puts body
