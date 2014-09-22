@@ -1,3 +1,6 @@
 .bundle
 config/*.yml
 bin
+tmp/*
+log/*
+config/unicorn.rb
