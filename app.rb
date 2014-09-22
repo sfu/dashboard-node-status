@@ -1,5 +1,5 @@
 configure do
-  redis_url = ENV['redis_url'] || 'redis://localhost:6379/0'
+  redis_url = settings.redis_url
   $redis = Redis.new(:url => redis_url)
 end
 
