@@ -24,7 +24,6 @@ post '/service/:service/:id' do
   request.body.rewind
   body = request.body.read
   if is_json?(body)
-    puts "service:#{params[:service]} #{params[:id]} #{body}"
     $redis.hmset("service:#{params[:service]}", "#{params[:id]}", "#{body}")
     "ok"
   else
@@ -42,7 +41,6 @@ get '/service/:service/?:id?' do
   if !data || (data.class == Hash && data.empty?)
     status 404
   else
-    puts data
     data.to_json
   end
 end
