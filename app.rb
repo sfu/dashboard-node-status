@@ -13,7 +13,7 @@ def is_json?(json)
 end
 
 get '/' do
-  status 200
+  "ok"
 end
 
 get '/isup' do
